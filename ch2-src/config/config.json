@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "root",
+    "password": "nodejsbook",
+    "database": "nodebird",
+    "host": "winhost",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "winhost",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "winhost",
+    "dialect": "mysql"
+  }
+}
