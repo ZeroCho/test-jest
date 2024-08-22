@@ -3,21 +3,21 @@
     "username": "root",
     "password": "nodejsbook",
     "database": "nodebird",
-    "host": "winhost",
+    "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": null,
     "database": "database_test",
-    "host": "winhost",
+    "host": "localhost",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
     "password": null,
     "database": "database_production",
-    "host": "winhost",
+    "host": "localhost",
     "dialect": "mysql"
   }
 }
