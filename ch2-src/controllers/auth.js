@@ -1,4 +1,5 @@
 const passport = require('passport');
+const bcrypt = require('bcrypt');
 const User = require('../models/user');
 
 exports.join = async (req, res, next) => {
@@ -8,10 +9,7 @@ exports.join = async (req, res, next) => {
     if (exUser) {
       return res.redirect('/join?error=exist');
     }
-    const hash = await Bun.password.hash(password, {
-      algorithm: "bcrypt",
-      cost: 12,
-    });
+    const hash = await bcrypt.hash(password, 12);
     await User.create({
       email,
       nick,

@@ -18,11 +18,13 @@ router.get('/logout', isLoggedIn, logout);
 // GET /auth/kakao
 router.get('/kakao', passport.authenticate('kakao'));
 
+const kakaoCallbackSuccess = (req, res) => {
+  res.redirect('/'); // 성공 시에는 /로 이동
+};
 // GET /auth/kakao/callback
 router.get('/kakao/callback', passport.authenticate('kakao', {
   failureRedirect: '/?error=카카오로그인 실패',
-}), (req, res) => {
-  res.redirect('/'); // 성공 시에는 /로 이동
-});
+}), kakaoCallbackSuccess);
 
+router.kakaoCallbackSuccess = kakaoCallbackSuccess;
 module.exports = router;

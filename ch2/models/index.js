@@ -2,6 +2,7 @@ const Sequelize = require('sequelize');
 const fs = require('fs');
 const path = require('path');
 const env = process.env.NODE_ENV || 'development';
+console.log('env', env, typeof process.env.NODE_ENV);
 const config = require('../config/config')[env];
 
 const db = {};
@@ -14,8 +15,8 @@ db.sequelize = sequelize;
 const basename = path.basename(__filename);
 fs
   .readdirSync(__dirname) // 현재 폴더의 모든 파일을 조회
-  .filter(file => { // 숨김 파일, index.ts, js 확장자가 아닌 파일 필터링
-    return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
+  .filter(file => { // 숨김 파일, 테스트 파일, index.ts, js 확장자가 아닌 파일 필터링
+    return (!file.includes('spec.js')) && (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
   })
   .forEach(file => { // 해당 파일의 모델 불러와서 init
     const model = require(path.join(__dirname, file));
