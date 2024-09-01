@@ -15,4 +15,5 @@ test('시간아 빨리가라!', (done) => {
     done();
   })
   jest.runAllTimers();
+  // jest.advanceTimersByTime(10_000) // 10초 흐르게
 })
