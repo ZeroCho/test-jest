@@ -13,8 +13,13 @@ const LogIn = () => {
   const [password, onChangePassword] = useInput('');
   const onSubmit = useCallback<FormEventHandler>(
     (e) => {
+      console.log(email, password);
       e.preventDefault();
       setLogInError(false);
+      if (!email || !password) {
+        setLogInError(true);
+        return;
+      }
       axios
         .post(
           '/api/users/login',
@@ -34,7 +39,6 @@ const LogIn = () => {
     [email, password, mutate],
   );
 
-  console.log(error, userData);
   if (!error && userData) {
     console.log('로그인됨', userData);
     return <Redirect to="/workspace/sleact/channel/일반" />;
@@ -55,9 +59,9 @@ const LogIn = () => {
           <div>
             <Input type="password" id="password" name="password" value={password} onChange={onChangePassword} />
           </div>
-          {logInError && <Error>이메일과 비밀번호 조합이 일치하지 않습니다.</Error>}
+          {logInError && <Error id="errorMessage">이메일과 비밀번호 조합이 일치하지 않습니다.</Error>}
         </Label>
-        <Button type="submit">로그인</Button>
+        <Button type="submit" id="submit">로그인</Button>
       </Form>
       <LinkContainer>
         아직 회원이 아니신가요?&nbsp;
