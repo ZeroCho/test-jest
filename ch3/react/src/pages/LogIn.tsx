@@ -49,13 +49,13 @@ const LogIn = () => {
       <Header>Sleact</Header>
       <Form onSubmit={onSubmit}>
         <Label id="email-label">
-          <span>이메일 주소</span>
+          <span>이메일</span>
           <div>
             <Input type="email" id="email" name="email" value={email} onChange={onChangeEmail} />
           </div>
         </Label>
         <Label id="password-label">
-          <span>비밀번호</span>
+          <span>패스워드</span>
           <div>
             <Input type="password" id="password" name="password" value={password} onChange={onChangePassword} />
           </div>
